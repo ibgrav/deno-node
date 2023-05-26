@@ -1,6 +1,7 @@
 import { createReadStream } from "node:fs";
 import { stat } from "node:fs/promises";
 import { resolve } from "node:path";
+import { cwd } from "node:process";
 
 /** @type {import('./types.js').GetURL} */
 function getURL(req) {
@@ -25,7 +26,7 @@ export async function assetsHandler(req, res, callback) {
 
   if (url.pathname.startsWith("/assets")) {
     const name = url.pathname.replace("/assets/", "");
-    const path = resolve(process.cwd(), "src/client", name);
+    const path = resolve(cwd(), "src/client", name);
 
     try {
       const type = findMimeType(name);

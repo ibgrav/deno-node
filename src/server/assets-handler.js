@@ -41,6 +41,7 @@ export async function assetsHandler(req, res, callback) {
         createReadStream(path).pipe(res);
       }
     } catch (e) {
+      console.error(e);
       res.statusCode = 404;
       res.end();
     }

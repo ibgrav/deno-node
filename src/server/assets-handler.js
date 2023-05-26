@@ -25,7 +25,7 @@ export async function assetsHandler(req, res, callback) {
 
   if (url.pathname.startsWith("/assets")) {
     const name = url.pathname.replace("/assets/", "");
-    const path = resolve(process.cwd(), "client", name);
+    const path = resolve(process.cwd(), "src/client", name);
 
     try {
       const type = findMimeType(name);
